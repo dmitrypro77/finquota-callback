@@ -1,0 +1,22 @@
+# Logs
+logs
+_.log
+npm-debug.log_
+yarn-debug.log*
+yarn-error.log*
+
+# Jetbrains
+.idea
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+node_modules
+
+# yarn v2
+.yarn/cache
+.yarn/unplugged
+
+# wrangler project
+.dev.vars
+.wrangler/

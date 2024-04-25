@@ -1,0 +1,33 @@
+name = "finquota-callback"
+main = "src/index.ts"
+compatibility_date = "2024-04-19"
+compatibility_flags = ["nodejs_compat"]
+
+# Variable bindings. These are arbitrary, plaintext strings (similar to environment variables)
+# Docs:
+# - https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
+# Note: Use secrets to store sensitive data.
+# - https://developers.cloudflare.com/workers/configuration/secrets/
+[vars]
+# Default Required Settings
+# Values: slack | mailgun | google_chat
+PROVIDER = "slack"
+# In your Profile on https://finquota.com
+API_TOKEN = "your_token"
+# Custom Message Template
+# Available options: {%ticker%} {%close%} {%signal%} {%stopSignal%} {%strategyName%} {%timestamp%}
+MESSAGE="Signal: {%signal%}\nTicker: {%ticker%}\nPrice: {%close%}\nStrategy: {%strategyName%}\nTime: {%timestamp%}\n"
+
+# Depends on the selected service provider
+# Example: Mailgun Settings
+# More details: https://help.mailgun.com/hc/en-us/articles/203380100-Where-can-I-find-my-API-keys-and-SMTP-credentials
+# MAILGUN_API_KEY = "your_mailgun_api_key"
+# MAILGUN_DOMAIN = "test.com"
+# MAILGUN_FROM = "fromm@test.com"
+# MAILGUN_TO = "me@test.com"
+# MAILGUN_SUBJECT = "Trading Update"
+
+# Example: Slack Settings | Google Chat Settings
+# Doc Slack Webhook: https://api.slack.com/messaging/webhooks
+# Doc Google Chat Webhook: https://www.googlecloudcommunity.com/gc/Tips-Tricks/Integration-with-Google-Chat-How-Actually-it-was-ultra-easy/m-p/404756
+WEBHOOK_URL = "your_webhook_url"
